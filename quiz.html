@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<p id="counter"></p>
+<p id="content">
+	
+</p>
+<form id="quiz">
+	<div class="question">
+    <p>1. Which planet has the highest recorded surface temperature?</p>
+	<input type="radio" name="temp" value="Earth" id="a"> <label for="a">Earth</label><br>
+	<input type="radio" name="temp" value="Venus"> Venus<br>
+	<input type="radio" name="temp" value="Mars"> Mars<br>
+	<input type="radio" name="temp" value="Mercury"> Mercury<br> 
+
+	</div>
+
+
+<div class="question"></div>
+	<p>2. Which of the Soviet Luna probes was the first to succesfully land on the Moon? </p>
+	<input type="radio" name="Luna" value="Luna1" id="b"> <label for="b">Luna 1</label><br>
+	<input type="radio" name="Luna" value="Luna2"> Luna 2<br>
+	<input type="radio" name="Luna" value="Luna3"> Luna 3<br>
+	<input type="radio" name="Luna" value="Luna4"> Luna 4<br> 
+
+	
+<div class="question">
+	<p>3. What is the main element that fuels the sun's fusion</p>
+	<input type="radio" name="elem" value="helium" id="c"> <label for="c">helium</label><br>
+	<input type="radio" name="elem" value="oxygen"> oxygen<br>
+	<input type="radio" name="elem" value="iron"> iron<br>
+	<input type="radio" name="elem" value="hydrogen"> hydrogen<br> 
+</div>
+<div class="question">
+    <p>4. What is the closest star to us, other than the sun?</p>
+	<input type="radio" name="star" value="AlphaCentauri" id="d"> <label for="d">Alpha Centauri</label><br>
+	<input type="radio" name="star" value="Polaris"> Polaris<br>
+	<input type="radio" name="star" value="Betelgeuse"> Betelgeuse<br>
+	<input type="radio" name="star" value="Sirius"> Sirius<br> 
+</div>
+	
+<div class="question">
+    <p>5. Which of the Martian Rovers is still active as of 7/20/19? </p>
+	<input type="radio" name="rov" value="Sojourner" id="e"> <label for="e">Sojourner</label><br>
+	<input type="radio" name="rov" value="Curiosity"> Curiosity<br>
+	<input type="radio" name="rov" value="Opportunity"> Opportunity<br>
+    <input type="radio" name="rov" value="Spirit"> Spirit<br> 
+</div>
+
+
+	
+<div class="question">
+    <p>6. What kind of galaxy is the Milky Way believed to be? </p>
+	<input type="radio" name="shape" value="spiral" id="f"> <label for="f">Spiral</label><br>
+	<input type="radio" name="shape" value="barred"> Spiral-Barred<br>
+	<input type="radio" name="shape" value="eliptical"> Eliptical<br>
+	<input type="radio" name="shape" value="irregular"> Irregular<br> 
+</div>
+
+
+<div class="question">
+    <p>7. What will happen to our sun when it dies?</p>
+    <input type="radio" name="sunD" value="blackHole" id="g"> <label for="g">become a black hole</label><br>
+    <input type="radio" name="sunD" value="whiteDwarf"> become a white dwarf<br>
+    <input type="radio" name="sunD" value="neutron"> become a neutron star<br>
+    <input type="radio" name="sunD" value="brownDwarf"> become a brown dwarf<br> 
+    
+</div>
+	
+	
+<div class="question">
+    <p>8. How long does it take for light from the sun to reach Earth?</p>
+    <input type="radio" name="speed" value="seconds" id="h"> <label for="h">37 seconds</label><br>
+    <input type="radio" name="speed" value="lowminute"> 8 minutes<br>
+    <input type="radio" name="speed" value="hight minutes"> 14 minutes<br>
+    <input type="radio" name="speed" value="hours"> 2.5 hours<br>
+</div>
+
+<div class="question">
+    <p>9. Which of these asteroids is believed to be a dwarf planet? </p>
+    <input type="radio" name="rocks" value="Vesta" id="i"> <label for="i">Vesta</label><br>
+    <input type="radio" name="rocks" value="Pallas"> Pallas<br>
+    <input type="radio" name="rocks" value="Ceres"> Ceres<br>
+    <input type="radio" name="rocks" value="Juno"> Juno<br> 
+     
+</div>
+    
+
+<div class="question">
+	<p>10. What is the name of the supercluster that we are located in? </p>
+	<input type="radio" name="super" value="Virgo" id="j"> <label for="j">Virgo</label><br>
+	<input type="radio" name="super" value="Hercules"> Hercules<br>
+	<input type="radio" name="super" value="Leo"> Leo<br>
+	<input type="radio" name="super" value="Laniakea"> Laniakea<br> 
+
+</div>
+	<input type="submit" value="Submit">
+</form>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	
+    var numquestions = 10;
+    score=0
+    var counter = 10;
+	$('#counter').text(counter);
+
+	var timer = setInterval(goDown, 1*1000);
+
+	function goDown(){
+		
+        counter--;
+		$('#counter').text(counter);
+
+		if (counter == 0){
+			$("input[type='submit']").attr('disabled', true);
+			clearInterval(timer);
+			$('#content').text('timer is up!');
+            alert(score)
+		}
+
+	}
+
+
+	$("input[type='submit']").on('click', function(){
+        var answers= ['Venus','Luna2','hydrogen','AlphaCentauri','Curiosity','barred','whiteDwarf','lowminute','Ceres','Laniakea'];
+		var score = 0;
+        var userAns = $("input[name='temp']:checked").val();
+
+		if (userAns == answers){
+			score ++;}
+        alert(score)
+		event.preventDefault();
+	});
+</script>
+</body>
+</html>
